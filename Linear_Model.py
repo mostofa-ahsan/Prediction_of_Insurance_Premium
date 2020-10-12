@@ -68,3 +68,33 @@ mae_r = mean_absolute_error(y_test, y_pred_r)
 mse_r = mean_squared_error(y_test, y_pred_r)
 print(f'Random Forest Regression mean absolute error {mae_r}')
 print(f"Random Forest Regression mean squared error {mse_r}")
+
+
+#importances = rfModel.feature_importances_
+#importances
+
+
+
+
+# interpreting random forest model. 
+
+importances = rfModel.feature_importances_
+
+# columns used in random forest model.
+columns = x_train.columns
+
+# series between columns and feature importances
+
+rfGraph = pd.Series(importances, columns)
+
+
+
+
+
+# Visualization for Random Regression model.
+
+figure(figsize=(10,10))
+
+rfGraph.sort_values().plot.barh(color='red')
+
+plt.title('Visualization for Random Forest Regression Model Feature Importances')
