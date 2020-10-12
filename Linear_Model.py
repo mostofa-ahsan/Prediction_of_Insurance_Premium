@@ -52,3 +52,19 @@ y_pred = lrModel.predict(x_test)
 
 
 
+from sklearn.ensemble import RandomForestRegressor
+
+rf = RandomForestRegressor(random_state=42)
+
+# fitting random regression model
+
+rfModel = rf.fit(x_train, y_train)
+
+# predicting y_values using test dataset. 
+
+y_pred_r = rfModel.predict(x_test)
+
+mae_r = mean_absolute_error(y_test, y_pred_r)
+mse_r = mean_squared_error(y_test, y_pred_r)
+print(f'Random Forest Regression mean absolute error {mae_r}')
+print(f"Random Forest Regression mean squared error {mse_r}")
